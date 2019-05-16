@@ -1,0 +1,86 @@
+<head>
+    <script src="../scripts/jquery/jquery-3.3.1.min.js"></script>
+    <script src="../scripts/register.js"></script>
+    <script src="../scripts/programTable.js"></script>
+    <!-- <script>window.jQuery || 
+    document.write(<script src='./jquery/jquery-3.3.1.min.js'><\/script>);</script> -->
+    <style>
+        .inert {
+            background-color: lightgray;
+        }
+        .inert input {
+            display: none;
+        }
+        .zero {
+            background-color: tomato;
+        }
+        table {
+            width: 50%;
+            border-collapse: collapse;
+        }
+        th {
+            /* align-content: center; */
+            border: 1px solid black;
+            /* display: inline-table; */
+            padding: 1%;
+            text-align: left;
+        }
+        td {
+            /* align-content: center; */
+            /* align-items: center; */
+            border: 1px solid black;
+            /* display: inline-table */
+            text-align: center;
+        }
+        .active {
+            background-color: blanchedalmond;
+        }
+    </style>
+</head>
+<body>
+    <div id="program-container">
+        <table class="program" id="main-program">
+            <tr class="program-header">
+                <th class="program-column-head">Line</th>
+                <th class="program-column-head">Operation</th>
+                <th class="program-column-head">Register</th>
+                <th class="program-column-head">Next Line</th>
+                <th class="program-column-head">Branch Line</th>
+                <th class="program-column-head">Delete Line</th>
+            </tr>
+            <tr class="line" id="line-zero" style="display: none;">
+                <td class="line-num-cell">
+                    <h3 class="line-num">0</h3>
+                </td>
+                <td class="op-cell">
+                    <select class="op-select">
+                        <option value="END" class="op" selected>END</option>
+                        <option value="INC" class="op">INC</option>
+                        <option value="DEB" class="op">DEB</option>
+                    </select>
+                </td>
+                <td class="inc reg-cell inert">
+                    <input name="reg" type="number" class="reg" min='1' />
+                </td>
+                <td class="inc next-cell inert">
+                    <input name="nxt" type="number" class="nxt" min='0' value="0"/>
+                </td>
+                <td class="deb branch-cell inert">
+                    <input name="alt" type="number" class="alt" min='0' value="0"/>
+                </td>
+                <td class="remove-line-cell">
+                    <a class="remove-line" style="color:red;font-family:sans-serif">X</a>
+                </td>
+            </tr>
+        </table>
+        <button type="button" class="add-line">Add new line</button>
+    </div>
+    <!-- <div id="display-container">
+        <div id="display">
+        </div>
+    </div> -->
+    <script>
+        var globalLines_ = 0;
+        var table_ = ProgramTable("#main-program");
+    </script>
+</body>
